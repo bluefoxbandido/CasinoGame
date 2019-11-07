@@ -1,37 +1,76 @@
-//Build deck
-const deck = () => {
-    let singleDeck = [];
-    const suits = {"Hearts" : "♥","Spades" : "♠","Clubs" : "♣","Diamonds" : "♦"};
-    const cardValues = {
-        "Ace" : 11,
-        "Two" : 2,
-        "Three" : 3,
-        "Four" : 4,
-        "Five" : 5,
-        "Six" : 6,
-        "Seven" : 7,
-        "Eight" : 8, 
-        "Nine" : 9,
-        "Ten" : 10,
-        "Jack" : 10,
-        "Queen" : 10,
-        "King" : 10
-    }
-    let suitKeys = Object.keys(suits);
-    let counter = 0;
-    let suitCounter = 0;
-    for (suit in suits){
-        // console.log(suit)
-        for (cardValue in cardValues) {
-            
-        }
-        suitCounter++;
-    }
+// //Build deck
+// const card = (suit, type) =>{
+//     this.suit = suit;
+//     this.type = type;
+// }
 
-    return singleDeck;
+
+
+const suits = ["♥", "♦", "♣", "♠"];
+const types = {
+    "Ace" : 11,
+    "Two" : 2,
+    "Three" : 3,
+    "Four" : 4,
+    "Five" : 5,
+    "Six" : 6,
+    "Seven" : 7,
+    "Eight" : 8, 
+    "Nine" : 9,
+    "Ten" : 10,
+    "Jack" : 10,
+    "Queen" : 10,
+    "King" : 10
+}
+let deck = [];
+for(suit in suits){
+    suit = suits[suit];
+    for(type in types){
+        type = types[type];
+        let card = {
+            suit: suit,
+            type: type,
+        };
+        deck.push(card)
+    }
 }
 
-const newDeck = deck();
+console.log(deck);
+
+
+// const deck = () => {
+//     let singleDeck = [];
+//     const suits = {"Hearts" : "♥","Spades" : "♠","Clubs" : "♣","Diamonds" : "♦"};
+//     const cardValues = {
+//         "Ace" : 11,
+//         "Two" : 2,
+//         "Three" : 3,
+//         "Four" : 4,
+//         "Five" : 5,
+//         "Six" : 6,
+//         "Seven" : 7,
+//         "Eight" : 8, 
+//         "Nine" : 9,
+//         "Ten" : 10,
+//         "Jack" : 10,
+//         "Queen" : 10,
+//         "King" : 10
+//     }
+//     let suitKeys = Object.keys(suits);
+//     let counter = 0;
+//     let suitCounter = 0;
+//     for (suit in suits){
+//         // console.log(suit)
+//         for (cardValue in cardValues) {
+//             singleDeck.push(`${suit}`)
+//         }
+//         suitCounter++;
+//     }
+
+//     return singleDeck;
+// }
+
+// const newDeck = deck();
 
 
 //Give User 100
