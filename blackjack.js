@@ -39,14 +39,20 @@ prompt('Welcome to BlackJack. You have 100 dollars')
 //Player places a wager
 let wager = parseInt(prompt('Enter an amount to wager'));
 const deal = () => {
-    const cardOne = deck[Math.floor(Math.random() * 52) -1]
-    const cardTwo = deck[Math.floor(Math.random() * 52) -1]
+    const dealCard = () => {
+        const dealtCard = deck[Math.floor(Math.random() * 52) - 1];
+        return dealtCard;
+    }
+    //Deal two cards to the dealer and to the dealer
+    const cardOne = dealCard();
+    const cardTwo = dealCard();
+    
     let userHand = [cardOne, cardTwo];
     let userValue = cardOne.value + cardTwo.value;
 
-    const dealerOne = deck[Math.floor(Math.random() * 52) -1];
-    const dealerTwo = deck[Math.floor(Math.random() * 51) -1];
-    const dealerHand = [dealerOne, dealerTwo];
+    const dealerOne = dealCard();
+    const dealerTwo = dealCard();
+
     const dealerValue = dealerOne.value + dealerTwo.value;
 
     if (dealerValue > userValue){
@@ -54,20 +60,21 @@ const deal = () => {
     } else if (dealerValue < userValue){
         wallet += wager;
     }
+
+    //show players hand and show dealers top card
     console.log("User:  ", userHand);
-    console.log("Dealer:  ", dealerHand);
+    console.log("Dealer:  ", dealerOne);
     return wallet;
 }
 console.log(deal())
 console.log(wallet)
-//Deal two cards to the dealer and to the dealer
-//show players hand and show dealers top card
-//if player card total is 21 they win
-//player can hit
+
 //if player card total is higher than 21, they lost
+//if player card total is 21 they win
+
+//player can hit
 //player can pass
+
 //if player card total is higher than dealer card total player wins
 //if player card total is equal to the dealer, player push
 //if player card total is less than the dealer, dealer wins
-//
-var response = prompt();
