@@ -1,6 +1,7 @@
 //Build deck
 const deck = () => {
-    const suits = ["Heart", "Spade", "Club", "Diamond"];
+    let singleDeck = [];
+    const suits = {"Hearts" : "♥","Spades" : "♠","Clubs" : "♣","Diamonds" : "♦"};
     const cardValues = {
         "Ace" : 11,
         "Two" : 2,
@@ -11,11 +12,30 @@ const deck = () => {
         "Seven" : 7,
         "Eight" : 8, 
         "Nine" : 9,
+        "Ten" : 10,
         "Jack" : 10,
         "Queen" : 10,
         "King" : 10
     }
+    let counter = 0;
+    let suitCounter = 0;
+    for (suit in suits){
+
+        for (cardValue in cardValues) {
+
+            singleDeck[counter] = {
+                suit : cardValue
+            };
+            counter++;
+        }
+        suitCounter++;
+    }
+
+    return singleDeck;
 }
+
+const newDeck = deck();
+console.log(newDeck);
 
 //Give User 100
 //Player places a wager
