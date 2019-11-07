@@ -34,36 +34,51 @@ for(suit in suits){
 }
 //Give User 100
 let wallet = 100;
-prompt('Welcome to BlackJack. You have 100 dollars')
+alert('Welcome to BlackJack. You have 100 dollars')
 
 //Player places a wager
 let wager = parseInt(prompt('Enter an amount to wager'));
 const deal = () => {
     const dealCard = () => {
-        const dealtCard = deck[Math.floor(Math.random() * 52) - 1];
+        const dealtCard = deck[Math.floor(Math.random() * 51)];
         return dealtCard;
+    }
+    const hitStay = () => {
+        alert("You have :", userValue)
+        const response = prompt("Type H to hit, type S to stay")
+        if (response == "H"){
+            anotherCard = dealCard();
+            userHand.push(anotherCard);
+            userValue += anotherCard.value;
+            hitStay();
+        }
     }
     //Deal two cards to the dealer and to the dealer
     const cardOne = dealCard();
     const cardTwo = dealCard();
-    
+
     let userHand = [cardOne, cardTwo];
     let userValue = cardOne.value + cardTwo.value;
-
+    
     const dealerOne = dealCard();
     const dealerTwo = dealCard();
 
     const dealerValue = dealerOne.value + dealerTwo.value;
 
+    //show players hand and show dealers top card
+    console.log("User:  ", userHand);
+    console.log("Dealer:  ", dealerOne);
+
+    hitStay();
+
+    console.log(dealerTwo);
+    //Dealer Second Card
     if (dealerValue > userValue){
         wallet -= wager;
     } else if (dealerValue < userValue){
         wallet += wager;
     }
 
-    //show players hand and show dealers top card
-    console.log("User:  ", userHand);
-    console.log("Dealer:  ", dealerOne);
     return wallet;
 }
 console.log(deal())
