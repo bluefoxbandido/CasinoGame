@@ -17,16 +17,13 @@ const deck = () => {
         "Queen" : 10,
         "King" : 10
     }
+    let suitKeys = Object.keys(suits);
     let counter = 0;
     let suitCounter = 0;
     for (suit in suits){
-
+        // console.log(suit)
         for (cardValue in cardValues) {
-
-            singleDeck[counter] = {
-                suit : cardValue
-            };
-            counter++;
+            
         }
         suitCounter++;
     }
@@ -35,7 +32,7 @@ const deck = () => {
 }
 
 const newDeck = deck();
-console.log(newDeck);
+
 
 //Give User 100
 //Player places a wager
